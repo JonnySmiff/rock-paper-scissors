@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors</title>
+	<meta charset = utf-8>
+</head>
+<body>
+	<button onclick="game()">Click to play <em>Ro-Sham-Bo</em></button>
+
+
+</body>
+<script>
+
+var roundNum = 0;
+var winCountPlayer = 0;
+var winCountComputer = 0;
+
+/* generates a random choice for cpu */
+function computerPlay () {
+	var randomNumber = Math.floor(Math.random() * 100);
+		if (randomNumber < 33) {
+		return "Rock";
+	} else if (randomNumber > 66) {
+		return "Paper";
+	} else {
+		return "Scissors";
+	}
+}
+
+/* plays a round of rock-paper-scissors */
+function playRound(playerSelection, computerSelection) {
+	var lowerCase = playerSelection.toLowerCase();
+	var firstLetter = lowerCase[0].toUpperCase();
+	var restOfWord = lowerCase.slice(1);
+	var playerPlays = firstLetter + restOfWord;
+
+
+
+	if (playerPlays === "Rock" && computerSelection === "Rock") {
+		roundNum = roundNum + 1;
+		alert("You chose " + playerPlays + ".\nThe AI chose " + computerSelection + ".\nIt's a tie! Try again.");
+	} else if (playerPlays === "Rock" && computerSelection === "Paper") {
+		roundNum = roundNum + 1;
+		winCountComputer = winCountComputer + 1;
+		alert("You chose " + playerPlays + ".\nThe AI chose " + computerSelection + ".\nYou lose! Paper beats Rock.");
+	} else if (playerPlays === "Rock" && computerSelection === "Scissors") {
+		roundNum = roundNum + 1;
+		winCountPlayer = winCountPlayer + 1;
+		alert("You chose " + playerPlays + ".\nThe AI chose " + computerSelection + ".\nYou win! Rock beats Scissors.");
+	} else if (playerPlays === "Paper" && computerSelection === "Rock") {
+		roundNum = roundNum + 1;
+		winCountPlayer = winCountPlayer + 1;
+		alert("You chose " + playerPlays + ".\nThe AI chose " + computerSelection + ".\nYou win! Paper beats Rock.");
+	} else if (playerPlays === "Paper" && computerSelection === "Paper") {
+		roundNum = roundNum + 1;
+		alert("You chose " + playerPlays + ".\nThe AI chose " + computerSelection + ".\nIt's a tie! Try again.");
+	} else if (playerPlays === "Paper" && computerSelection === "Scissors") {
+		roundNum = roundNum + 1;
+		winCountComputer = winCountComputer + 1;
+		alert("You chose " + playerPlays + ".\nThe AI chose " + computerSelection + ".\nYou lose! Scissors beats Paper.");
+	} else if (playerPlays === "Scissors" && computerSelection === "Rock") {
+		roundNum = roundNum + 1;
+		winCountComputer = winCountComputer + 1;
+		alert("You chose " + playerPlays + ".\nThe AI chose " + computerSelection + ".\nYou lose! Rock beats Scissors.");
+	} else if (playerPlays === "Scissors" && computerSelection === "Paper") {
+		roundNum = roundNum + 1;
+		winCountPlayer = winCountPlayer + 1;
+		alert("You chose " + playerPlays + ".\nThe AI chose " + computerSelection + ".\nYou win! Scissors beats Paper.");
+	} else if (playerPlays === "Scissors" && computerSelection === "Scissors") {
+		roundNum = roundNum + 1;
+		alert("You chose " + playerPlays + ".\nThe AI chose " + computerSelection + ".\nIt's a tie! Try again.");
+	}
+}
+;
+// keeps track of round numbers and iterates. Displays winner message
+function game () {
+	while (roundNum < 5) {
+	var userInput = prompt("Rock, paper, or Scissors?");
+	playRound(userInput, computerPlay());
+	alert("You've won " + winCountPlayer + ".\nThe AI has won " + winCountComputer + ".");
+	}
+	if (winCountPlayer > winCountComputer) {
+			alert("Congratulations! You win! The score is " + winCountPlayer + " to " + winCountComputer + ".");
+		} else {
+			alert("Sorry! You lose! The score is " + winCountPlayer + " to " + winCountComputer + ".");
+		}
+	roundNum = 0;
+	winCountPlayer = 0;
+	winCountComputer = 0;
+	} 
+
+
+</script>
+</html>
