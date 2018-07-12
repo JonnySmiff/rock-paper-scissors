@@ -1,0 +1,71 @@
+html {
+	font-size: 10px;
+	font-family: 'Gaegu', cursive;
+	background: linear-gradient(to bottom right, #fa9703, #effc37);
+	height: 100%;
+}
+
+p {
+	font-size: 3rem;
+}
+
+.title {
+	text-align: center;
+	font-size: 3rem;
+	text-shadow: 0.2rem 0.4rem 0.1rem #ffffff;
+}
+
+.choices {
+	display: flex;
+	flex: 1;
+	max-height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+.userChoice {
+	border: 0.2rem solid black;
+	border-radius: 16rem;
+	width: 16rem;
+	height: 16rem;
+	margin: 4rem;
+}
+
+.score-display {
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+#rock {
+	background-image: url("images/rock.jpeg");
+	background-position: center;
+	background-size: cover;
+}
+#paper {
+	background-image: url("images/paper.jpg");
+	background-size: cover;
+	background-position: center;
+}
+#scissors {
+	background-image: url("images/scissors.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+.selected {
+	transform: scale(1.1);
+	border-color: #faff0a;
+}
+
+@keyframes textPop {
+	from {color: red;}
+	to {color: black;}
+}
+
+#score {
+	animation-name: textPop;
+	animation-duration: 2s;
+}
+
+
+ 
